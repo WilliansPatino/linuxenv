@@ -36,6 +36,8 @@ if [ -d "$HOME/_myscripts" ] ; then
 #   export PATH="$PATH:$HOME/run"
 #fi
 
+
+
 # lo mismo pero con algunos retoques
 alias ll='clear && ls -lFh'
 alias la='clear && ls -a'
