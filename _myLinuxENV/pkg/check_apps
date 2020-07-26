@@ -1,0 +1,29 @@
+#!/bin/bash
+
+. ~/_myLinuxENV/styles/setting
+
+echo -e "$STAR Checking my favorites packages..."
+if [ ! -f /usr/bin/aptitude ]; then
+	sudo apt install -y aptitude
+else
+	echo "  aptitude found!"
+fi
+
+
+if [ ! -f /usr/bin/vim ]; then
+	sudo apt install -y vim
+else
+	echo "  vim found!"
+fi
+
+if [ ! -f /usr/bin/nvim ]; then
+	sudo apt install -y nvim
+else
+	echo "  neovim found!"
+fi
+
+if [ ! -f /usr/bin/tree ]; then
+	sudo apt install -y tree
+else
+	echo "  tree found!"
+fi
