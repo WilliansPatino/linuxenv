@@ -82,13 +82,12 @@ if [ -f /msa/cmt/deploy/complete-cms/addcms ]; then
    export PATH="$PATH:/msa/cmt/deploy/complete-cms/"
 fi
 
-# Comprobación rápida de diferencia/cambios en el archivo con respecto a mi laptop u oficina/PC
+# quick compare about this files laptop vs desktop/PC
 cmd=$(md5sum ~/_myLinuxENV/config/workshop)
 echo -e "$cmd"
 
 # install my favs apps
 ~/_myLinuxENV/pkg/check_apps
-
 
 # my scripts ready to use it
 export PATH="$PATH:~/_myLinuxENV/scripts"
@@ -175,3 +174,8 @@ else
 
    fi
 fi
+
+# prompt
+export PS1="\H \t [ \[\e[36;40m\]\w\[\e[m\] ] >  "
+export PS1='\[\e[0m\]\t\[\e[m\] \[\e[0m\](\[\e[0;1;38;5;46m\]$(ip route get 1.1.1.1 | awk -F"src " '"'"'NR==1{split($2,a," ");print a[1]}'"'"')\[\e[0m\])\[\e[m\] \[\e[0;38;5;46m\]\w\[\e[m\] \[\e[0m\]\$\[\e[m\] \[\e0'
+
