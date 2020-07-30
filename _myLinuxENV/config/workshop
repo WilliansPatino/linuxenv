@@ -106,31 +106,43 @@ else
 fi
 
 
-# vim setting up
+# vim setting 
 link_vim() {
     if [ ! -f ~/.vim/vimrc ]; then
        ln -s ~/linuxenv/_myLinuxENV/config/vimrc ~/.vim/vimrc
+        echo -e " .vim/vimrc enabled" 
     fi
-    echo -e "$ASTERISK .vim ha sido enlazado con el master" 
 }
 link_autoload() {
 
     if [ ! -d ~/.vim/autoload ]; then
 	ln -s ~/linuxenv/_myLinuxENV/config/autoload ~/.vim/autoload
+        echo -e ".vim/autoload enabled" 
+	
     fi
 }
-if [ -d ~/.vim ]; then
-
+link_plugged() {
+    if [ ! -d ~/.vim/plugged ]; then
+	ln -s ~/linuxenv/_myLinuxENV/config/plugged ~/.vim/plugged
+        echo -e ".vim/plugged enabled" 
+    fi
+}
+link_all() {
    link_vim
    link_autoload
+   link_plugged
+   echo -e "All link checked"
+}
+
+if [ -d ~/.vim ]; then
+   link_all
 else
    echo -e "$ALERT Directorio $YELLOW .vim $RST no existe."
    mkdir -p .vim
    echo -e "$ASTERISK Dir .vim creado!"
-
-	link_vim
-	link_autoload
+   link_all
 fi
+#--- end vim setup
 
 
 # enable .config/nvim/init.vim
