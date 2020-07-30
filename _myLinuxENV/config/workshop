@@ -6,7 +6,7 @@
 #    
 #  if [ -f ~/_myLinuxENV/config/workshop ]; then
 #     source  ~/_myLinuxENV/config/workshop
-#      echo -e "$INFO Personal Workshop/environment enabled"
+#      echo -e "$ASTERISK Personal Workshop/environment enabled"
 #   else
 #      echo -e "$WARNING - Workshop is disabled, check files"
 #  fi
@@ -42,8 +42,9 @@ if [ -d "$HOME/_myscripts" ] ; then
 alias ll='clear && ls -lFh'
 alias la='clear && ls -a'
 alias l='clear && ls -lCFGh'
-alias vimg='vim.gtk'
-alias vi='nvim'
+#alias vimg='vim.gtk'
+#alias vi='nvim'
+alias ..='cd ..'
 
 # gestion rapida de containers, stop, start, remove
 if [ -d "$DEPLOY/manage" ] ; then
@@ -90,4 +91,75 @@ echo -e "$cmd"
 
 
 # my scripts ready to use it
- export PATH="$PATH:~/_myLinuxENV/scripts"
+export PATH="$PATH:~/_myLinuxENV/scripts"
+
+# enable .vimrc
+if [ -f ~/.vimrc ]; then
+   echo -e "$ASTERISK .vimrc esta enlazado"
+else
+   if [ -f ~/linuxenv/_myLinuxENV/config/vimrc ]; then
+      ln -s ~/linuxenv/_myLinuxENV/config/vimrc .vimrc
+      echo -e "$ASTERISK .vimrc ha sido configurado"
+   else
+      echo -e "$ALERT .vimrc no pudo ser activado, el archivo no existe"
+   fi
+fi
+
+
+# vim setting up
+link_vim() {
+    if [ ! -f ~/.vim/vimrc ]; then
+       ln -s ~/linuxenv/_myLinuxENV/config/vimrc ~/.vim/vimrc
+    fi
+    echo -e "$ASTERISK .vim ha sido enlazado con el master" 
+}
+link_autoload() {
+
+    if [ ! -d ~/.vim/autoload ]; then
+	ln -s ~/linuxenv/_myLinuxENV/config/autoload ~/.vim/autoload
+    fi
+}
+if [ -d ~/.vim ]; then
+
+   link_vim
+   link_autoload
+else
+   echo -e "$ALERT Directorio $YELLOW .vim $RST no existe."
+   mkdir -p .vim
+   echo -e "$ASTERISK Dir .vim creado!"
+
+	link_vim
+	link_autoload
+fi
+
+
+# enable .config/nvim/init.vim
+link_initvim() {
+   ln -s ~/linuxenv/_myLinuxENV/config/init.vim ~/.config/nvim/init.vim
+}
+if [ -f ~/.config/nvim/init.vim ]; then
+   echo -e "$ASTERISK init.vim esta enlazado"
+else
+   # does init.vim exist?
+   if [ -f ~/linuxenv/_myLinuxENV/config/init.vim ]; then
+      # does the config dir exist? 
+      if [ -d ~/.config/nvim ]; then
+
+         link_initvim
+
+      else 
+         echo -e "$ALERT El directorio $YELLOW .config/nvim$RST no existe, ¡creado!"
+         mkdir -p ~/.config/nvim
+
+	link_initvim
+
+      fi
+      
+         echo -e "$ASTERISK .config/nvim/init.vim ha sido configurado"
+
+   else
+
+      echo -e "$ALERT init.vim no pudo ser activado, el archivo no existe"
+
+   fi
+fi
