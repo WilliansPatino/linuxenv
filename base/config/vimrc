@@ -1,4 +1,4 @@
-syntax on
+"syntax on
 set number
 set mouse=a
 set numberwidth=1
@@ -11,12 +11,36 @@ set showmatch
 set sw=2
 set relativenumber
 set noshowmode
-colorscheme elflord 
+let g:go_version_warning = 0
+
+"colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
+
+let mapleader=" "
+
+" Shortcuts
+nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>nt :NERDTreeFind<CR>
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+
+" Close nerdtree after of..
+let NERDTreeQuitOnOpen=1
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+
+" movement among windows
+Plug 'christoomey/vim-tmux-navigator'
+
+" IDE emulation / Easymotion"
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdtree'
+
+" Tema
+Plug 'morhetz/gruvbox'
 
 " Make sure you use single quotes
 
@@ -30,7 +54,7 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using a non-master branch
