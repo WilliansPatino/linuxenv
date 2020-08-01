@@ -14,8 +14,8 @@ if [ ! -f /usr/bin/vim ]; then
 fi
 
 if [ ! -f /usr/bin/nvim ]; then
-	sudo apt install -y nvim
-	sudo dnf install -y nvim
+	sudo apt install -y neovim
+	sudo dnf install -y neovim
 fi
 
 if [ ! -f /usr/bin/tree ]; then
