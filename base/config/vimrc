@@ -11,6 +11,7 @@ set showmatch
 set sw=2
 set relativenumber
 set noshowmode
+set coloscheme evening
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
