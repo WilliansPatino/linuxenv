@@ -4,10 +4,12 @@
 #  Enable customized linux environment from bash
 #
 
+. ~/linuxenv/base/styles/setting
+
 update_bash() {
 	file=$1
 {
-	echo '# Custom console environment - @ https://github.com/wajojo ' >>  ~/$file
+	echo '# Custom console environment - https://github.com/wajojo ' >>  ~/$file
 	echo ' '
 	echo 'link_env() { '
 	echo '   if [ ! -d ~/linuxenv ]; then'
@@ -30,5 +32,3 @@ echo -e "$OK $file updated!"
 
 update_bash '.bashrc'
 update_bash '.bash_profile'
-
-. ~/linuxenv/base/styles/setting
