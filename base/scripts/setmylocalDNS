@@ -4,7 +4,9 @@
 
 # I prefer this way instead netplan (ubuntu)	10.8.2020, 9h27
 
-. linuxenv/base/styles/setting
+if [ -f $HOME/linuxenv/base/styles/setting ]; then
+  . $HOME/linuxenv/base/styles/setting
+fi
 
 if [ ! -d ~/autoservice ]; then
 	mkdir $HOME/autoservice
