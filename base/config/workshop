@@ -68,8 +68,8 @@ alias dnfupdate='sudo dnf update "$@"'
 
 
 # Docker 
-if [ -f /msa/cmt/deploy/complete-cms/addcms ]; then
-   export PATH="$PATH:/msa/cmt/deploy/complete-cms/"
+if [ -d /msa/cmt/deploy/micro-LAMP ]; then
+   export PATH="$PATH:/msa/cmt/deploy/micro-LAMP/"
 fi
 
 # to see diff of this files in my laptop vs desktop/PC
@@ -165,7 +165,7 @@ PS1='\[\e[0m\][\[\e[0;38;5;47m\]$(ip route get 1.1.1.1 | awk -F"src " '"'"'NR==1
 # editor
 alias st3='~/linuxenv/ed/sublime_text'
 
- # enable my python packages
-export PYTHONPATH="$HOME/pypkg"
-export JUPYTER_PATH=$PYTHONPATH:$JUPYTER_PATH
-export PATH=$PATH:$PYTHONPATH
+# enable my python packages
+#export PYTHONPATH="$HOME/pypkg"
+#export JUPYTER_PATH=$PYTHONPATH:$JUPYTER_PATH
+#export PATH=$PATH:$PYTHONPATH
