@@ -9,7 +9,8 @@
 update_bash() {
 	file=$1
 {
-	echo '# Custom console environment - https://github.com/wajojo ' >>  ~/$file
+  	echo '#--- ' >> ~/$file
+	echo '# Custom console environment - https://github.com/wajojo '
 	echo ' '
 	echo 'link_env() { '
 	echo '   if [ ! -d ~/base ]; then'

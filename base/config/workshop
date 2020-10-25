@@ -32,13 +32,13 @@ alias ..='cd ..'
 
 # gestion rapida de containers, stop, start, remove
 if [ -d "$DEPLOY/manage" ] ; then
-   PATH="$PATH:$DEPLOY/manage"
+   export PATH="$PATH:$DEPLOY/manage"
 fi
 
 # mi area de trabajo docker
-if [ -d "$MSA/cmt/" ] ; then
-   PATH="$PATH:$MSA/cmt"
-fi
+#if [ -d "$MSA/cmt/" ] ; then
+#   PATH="$PATH:$MSA/cmt"
+#fi
 
 
 #  entorno de Programacion Go
@@ -82,7 +82,7 @@ if [ -f ~/linuxenv/base/pkg/check_apps ]; then
 fi
 
 # my scripts ready to use it
-export PATH="$PATH:~/linuxenv/base/scripts"
+export PATH="$PATH:$HOME/linuxenv/base/scripts"
 
 # enable .vimrc
 if [ -f ~/.vimrc ]; then
