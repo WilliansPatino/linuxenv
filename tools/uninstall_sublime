@@ -1,0 +1,1 @@
+sudo apt-get remove sublime-text && sudo apt-get autoremove
