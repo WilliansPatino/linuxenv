@@ -48,9 +48,9 @@ export GOPATH="$HOME:/Go_workspace"
 
 
 # systemctl
-alias sctlstatus='sudo systemctl "$@" status'
+alias sctlstat='sudo systemctl "$@" status'
 alias sctlstop='sudo systemctl "$@" stop'
-alias stlstart='sudo systemctl "$@" start'
+alias sctlinit='sudo systemctl "$@" start'
 
 # apt 
 alias pkginstall='sudo aptitude install "$@"'
@@ -170,7 +170,7 @@ if [ ! -f /opt/sublime_text/sublime_text ]; then
   sudo bash $HOME/linuxenv/tools/install_sublime
   echo -e "$BULLET Sublime text was installed"
 else
-  echo -e "$OK Sublime text is available"
+  echo -e "$OK Sublime text is available, can run as 'st3'"
   export PATH="$PATH:$HOME:/opt/sublime_text/"
 fi
 

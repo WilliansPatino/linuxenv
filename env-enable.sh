@@ -10,14 +10,14 @@ update_bash() {
 	file=$1
 {
   	echo '#--- ' >> ~/$file
-	echo '# Custom console environment - https://github.com/wajojo '
+	echo '# Customized environment - https://github.com/wajojo '
 	echo ' '
 	echo 'link_env() { '
 	echo '   if [ ! -d ~/base ]; then'
 	echo '	    ln -s ~/linuxenv/base ~/'
 	echo '   fi'
 	echo '   source  ~/linuxenv/base/config/workshop'
-	echo '   echo -e "$OK Custom console environment" '
+	echo '   echo -e "$OK Customized environment was enable successfully" '
 	echo ' '
 	echo '}'
 	echo ' '
