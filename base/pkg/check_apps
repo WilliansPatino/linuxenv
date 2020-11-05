@@ -2,7 +2,6 @@
 
 . ~/linuxenv/base/styles/setting
 
-echo -e "$STAR Checking my favorites packages..."
 if [ ! -f /usr/bin/aptitude ]; then
 	sudo apt install -y aptitude
 fi
@@ -22,3 +21,5 @@ if [ ! -f /usr/bin/tree ]; then
 	sudo apt install -y tree
 	sudo dnf install -y tree
 fi
+echo -e "$OK Checking favorites packages..."
+

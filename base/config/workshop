@@ -86,11 +86,11 @@ export PATH="$PATH:$HOME/linuxenv/base/scripts"
 
 # enable .vimrc
 if [ -f ~/.vimrc ]; then
-   echo -e "$OK .vimrc "
+   echo -e "$OK .vimrc is enabled"
 else
    if [ -f ~/linuxenv/base/config/vimrc ]; then
       ln -s ~/linuxenv/base/config/vimrc .vimrc
-      echo -e "$OK .vimrc "
+      echo -e "$OK .vimrc has been enabled"
    else
       echo -e "$ALERT .vimrc not found!"
    fi
@@ -136,7 +136,7 @@ link_initvim() {
    ln -s ~/linuxenv/base/config/init.vim  ~/.config/nvim/init.vim
 }
 if [ -f ~/.config/nvim/init.vim ]; then
-   echo -e "$OK init.vim already enabled!"
+   echo -e "$OK init.vim is enabled for neovim"
 else
    # does init.vim exist?
    if [ -f ~/linuxenv/base/config/init.vim ]; then
