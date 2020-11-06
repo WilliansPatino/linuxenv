@@ -10,6 +10,11 @@ esac
 
 . ~/linuxenv/base/styles/setting 
 
+#echo -e " $AST Detecting architecture"
+MACHINETYPE="$(uname -m)";
+ARCH="${MACHINETYPE}";
+echo -e "$BULLET Architecture detected as $ARCH..";
+
 # Directorio principal del entorno de trabajo para Docker
 MSA="/msa"  # microservices environment
 
@@ -73,8 +78,8 @@ if [ -d /msa/cmt/deploy/micro-LAMP ]; then
 fi
 
 # to see diff of this files in my laptop vs desktop/PC
-cmd=$(md5sum ~/linuxenv/base/config/workshop)
-echo -e "$cmd"
+#cmd=$(md5sum ~/linuxenv/base/config/workshop)
+#echo -e "$cmd"
 
 # install my favs apps
 if [ -f ~/linuxenv/base/pkg/check_apps ]; then
@@ -163,19 +168,23 @@ export PS1='\[\e[0m\]\t\[\e[m\] \[\e[0m\](\[\e[0;1;38;5;46m\]$(ip route get 1.1.
 PS1='\[\e[0m\][\[\e[0;38;5;47m\]$(ip route get 1.1.1.1 | awk -F"src " '"'"'NR==1{split($2,a," ");print a[1]}'"'"')\[\e[0m\]]\[\e[m\] \[\e[0m\]\t\[\e[m\] \[\e[0;38;5;76m\]\u\[\e[m\] \[\e[0;1;7;38;5;40;48;5;232m\]\w\[\e[m\] \[\e[0m\](\[\e[0m\]\j\[\e[0m\])\[\e[m\] \[\e[0m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[m\] \[\e[m\]\n\[\e[0m\]$ '
 
 # favorite editor
-alias st3='~/linuxenv/ed/sublime_text'  #<--- simple
+alias st3='~/linuxenv/ed/sublime_text'  #<--- simple / pre-installed
 
-# Check sublime text full version 
-if [ ! -f /opt/sublime_text/sublime_text ]; then
-  sudo bash $HOME/linuxenv/tools/install_sublime
-  echo -e "$BULLET Sublime text was installed"
-else
-  echo -e "$OK Sublime text is available, can run as 'st3'"
-  export PATH="$PATH:$HOME:/opt/sublime_text/"
+# Check sublime text (apt install)
+if [ "$ARCH" = "amd64" ] || [ "$ARCH" = "i386" ]; then 
+	if [ ! -f /opt/sublime_text/sublime_text ]; then
+	  sudo bash $HOME/linuxenv/tools/install_sublime
+	  echo -e "$BULLET Sublime text was installed"
+	else
+	  echo -e "$OK Sublime text is available, can run as 'st3'"
+	  export PATH="$PATH:$HOME:/opt/sublime_text/"
+	fi
 fi
 
 # enable my python packages
 #export PYTHONPATH="$HOME/pypkg"
 #export JUPYTER_PATH=$PYTHONPATH:$JUPYTER_PATH
 #export PATH=$PATH:$PYTHONPATH
+
+echo -e "$BULLET Optional packages can be installed from ~/linux/base/pkg"
 
