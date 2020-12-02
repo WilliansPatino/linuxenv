@@ -165,7 +165,9 @@ fi
 export PS1="\H \t [ \[\e[36;40m\]\w\[\e[m\] ] >  "
 export PS1='\[\e[0m\]\t\[\e[m\] \[\e[0m\](\[\e[0;1;38;5;46m\]$(ip route get 1.1.1.1 | awk -F"src " '"'"'NR==1{split($2,a," ");print a[1]}'"'"')\[\e[0m\])\[\e[m\] \[\e[0;38;5;46m\]\w\[\e[m\] \[\e[0m\]\$\[\e[m\] \[\e0'
 
-PS1='\[\e[0m\][\[\e[0;38;5;47m\]$(ip route get 1.1.1.1 | awk -F"src " '"'"'NR==1{split($2,a," ");print a[1]}'"'"')\[\e[0m\]]\[\e[m\] \[\e[0m\]\t\[\e[m\] \[\e[0;38;5;76m\]\u\[\e[m\] \[\e[0;1;7;38;5;40;48;5;232m\]\w\[\e[m\] \[\e[0m\](\[\e[0m\]\j\[\e[0m\])\[\e[m\] \[\e[0m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[m\] \[\e[m\]\n\[\e[0m\]$ '
+
+export PS1='\[\e[0m\][\[\e[0;38;5;47m\]$(ip route get 1.1.1.1 | awk -F"src " '"'"'NR==1{split($2,a," ");print a[1]}'"'"')\[\e[0m\]]\[\e[m\] \[\e[0m\]\t\[\e[m\] \[\e[0;38;5;76m\]\u\[\e[m\] @\h  \n \[\e[0;1;7;38;5;40;48;5;232m\]\w\[\e[m\] \[\e[0m\](\[\e[0m\]\j\[\e[0m\])\[\e[m\] \[\e[0m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[m\] \[\e[m\]\n\[\e[0m\]$ '
+
 
 # favorite editor
 alias st3='~/linuxenv/ed/sublime_text'  #<--- simple / pre-installed
