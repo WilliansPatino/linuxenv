@@ -2,6 +2,8 @@
 
 . ~/linuxenv/base/styles/setting
 
+echo -e "$BULLET Checking customized/favorites packages..."
+
 if [ ! -f /usr/bin/aptitude ]; then
 	sudo apt install -y aptitude
 fi
@@ -21,5 +23,10 @@ if [ ! -f /usr/bin/tree ]; then
 	sudo apt install -y tree
 	sudo dnf install -y tree
 fi
-echo -e "$OK Checking favorites packages..."
+
+# Terminal fonts
+if [ ! -f /var/lib/dpkg/info/xfonts-terminus.list ]; then
+  sudo apt install xfonts-terminus
+fi
+
 
