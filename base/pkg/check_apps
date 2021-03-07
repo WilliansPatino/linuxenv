@@ -29,4 +29,10 @@ if [ ! -f /var/lib/dpkg/info/xfonts-terminus.list ]; then
   sudo apt install xfonts-terminus
 fi
 
+# To do after installing Ubuntu 
+if [ $(lsb_release -i |awk '{print $3}')  == "Ubuntu" ]; then
+	echo "Ubuntu distro found"
+	sudo apt install ubuntu-restricted-extras vlc \
+	gnome-tweaks rar unrar p7zip-full p7zip-rar terminator
+fi
 
